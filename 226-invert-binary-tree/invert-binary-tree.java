@@ -14,17 +14,25 @@
  * }
  */
 class Solution {
-    // Using Recursion
+    // Approach : LevelOrder + Queue
     public TreeNode invertTree(TreeNode root) {
         if(root == null) return null;
 
-        TreeNode lh = invertTree(root.left);
-        TreeNode rh = invertTree(root.right);
+        Queue<TreeNode> que = new LinkedList<>();
+        que.add(root);
 
-        root.left = rh;
-        root.right = lh;
+        while(!que.isEmpty()){
+            final TreeNode node = que.poll();
+
+            final TreeNode temp = node.left;
+            node.left = node.right;
+            node.right = temp;
+
+            if(node.left != null) que.add(node.left);
+            if(node.right != null) que.add(node.right);
+
+        }
 
         return root;
-
     }
 }
