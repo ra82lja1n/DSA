@@ -14,7 +14,7 @@ class Solution {
         arr['o' - 'a'] = (arr['o' - 'a']) / 2;
 
         for(int i = 0 ; i < s.length(); i++){
-            min =  Math.min(arr[s.charAt(i) - 'a'] , min);
+            if(arr[s.charAt(i) - 'a'] < min) min = arr[s.charAt(i) - 'a'];
         }
 
         return min;
