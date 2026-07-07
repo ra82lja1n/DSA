@@ -1,8 +1,8 @@
 class Solution {
     public long sumAndMultiply(int n) {
-        long k = 0;
-        long sum = 0;
-        long helper = 1;
+        int k = 0;
+        int sum = 0;
+        int helper = 1;
         while (n > 0) {
             int t = n % 10;
             sum += t;
@@ -14,6 +14,6 @@ class Solution {
 
         }
 
-        return k * sum;
+        return (long) k * sum;
     }
 }
