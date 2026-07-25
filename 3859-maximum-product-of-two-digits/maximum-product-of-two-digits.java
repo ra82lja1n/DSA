@@ -1,7 +1,7 @@
 class Solution {
     public int maxProduct(int n) {
-        int mf = -1;
-        int ms = -1;
+        int mf = 0;
+        int ms = 0;
         while (n > 0) {
             int t = n % 10;
             if (t >= mf) {
@@ -12,8 +12,7 @@ class Solution {
             }
             n /= 10;
         }
-            System.out.println(mf);
-            System.out.println(ms);
-            return mf * ms;
+
+        return mf * ms;
     }
 }
