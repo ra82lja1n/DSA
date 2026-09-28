@@ -5,11 +5,13 @@ class Solution {
         int sound = 0;
         for(int i = 0 ; i < len; i++){
             char ch = s.charAt(i);
+            if(ch == '(')
+            {
+                sound++;
+                if(max < sound) max = sound;
+            }
+            else if(ch == ')') sound--;
 
-            if(ch == '(') sound++;
-            if(ch == ')') sound--;
-
-            max = Math.max(max, sound);
         }
 
         return max;
