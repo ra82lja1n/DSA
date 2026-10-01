@@ -13,30 +13,18 @@
  *     }
  * }
  */
- import java.lang.Iterable;
 class Solution {
-
-
     public boolean isSameTree(TreeNode p, TreeNode q) {
-        Queue<TreeNode> que = new LinkedList<>();
-        que.add(p);
-        que.add(q);
+        if(p == null && q == null) return true;
 
-        while(!que.isEmpty()){
-            TreeNode ele1 = que.poll();
-            TreeNode ele2 = que.poll();
+        if(p ==null || q == null) return false;
 
-            if(ele1 == null && ele2 == null) continue;
+        if(p.val != q.val) return false;
 
-           else if(ele1 == null || ele2 == null || ele1.val != ele2.val) return false;
+       boolean left = isSameTree(p.left, q.left);
+       boolean right = isSameTree(p.right, q.right);
 
+        return left && right;
 
-            que.add(ele1.left);
-            que.add(ele2.left);
-            que.add(ele1.right);
-            que.add(ele2.right);
-        }
-
-        return true;
     }
 }
